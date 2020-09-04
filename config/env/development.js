@@ -23,7 +23,7 @@ module.exports = {
   datastores: {
     default: {
       adapter: "sails-postgresql",
-      url: "postgresql://postgres:example@localhost:5432/canastrator",
+      url: process.env.POSTGRES_URL,
     },
   },
 

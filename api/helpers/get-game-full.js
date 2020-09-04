@@ -21,8 +21,6 @@ module.exports = {
       token: inputs.token,
     }).populate("players");
 
-    console.log(game);
-
     if (!game) {
       throw "notFound";
     }
@@ -84,8 +82,6 @@ module.exports = {
       playerScores = [];
       playerTotal = 0;
     });
-
-    console.log(roundScores);
 
     roundScores.forEach((winner) => {
       game.players.forEach((player) => {
