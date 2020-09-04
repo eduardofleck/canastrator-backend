@@ -35,7 +35,7 @@ module.exports = {
 
     await RoundPlayer.createEach(newRounds);
 
-    var fullGame = await sails.helpers.getGameFull(game.id);
+    var fullGame = await sails.helpers.getGameFull(game.token);
     return fullGame;
   },
 };
