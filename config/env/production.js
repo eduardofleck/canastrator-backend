@@ -55,7 +55,9 @@ module.exports = {
     },
   },
 
-  sockets: {},
+  sockets: {
+    onlyAllowOrigins: [],
+  },
 
   log: {
     level: "debug",
