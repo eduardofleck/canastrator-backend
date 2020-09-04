@@ -2,9 +2,9 @@ module.exports = {
   friendlyName: "Get game",
 
   inputs: {
-    id: {
-      description: "The ID of the game to look up.",
-      type: "number",
+    token: {
+      description: "The token of the game to look up.",
+      type: "string",
       required: true,
     },
   },
@@ -17,7 +17,7 @@ module.exports = {
   },
 
   fn: async function (inputs) {
-    var game = await sails.helpers.getGameFull(inputs.id);
+    var game = await sails.helpers.getGameFull(inputs.token);
     return game;
   },
 };

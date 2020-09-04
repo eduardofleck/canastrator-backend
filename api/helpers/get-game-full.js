@@ -2,9 +2,9 @@ module.exports = {
   friendlyName: "Get the full game, with rounds, players and scores",
 
   inputs: {
-    id: {
-      description: "The ID of the game to look up.",
-      type: "number",
+    token: {
+      description: "The token of the game to look up.",
+      type: "string",
       required: true,
     },
   },
@@ -18,8 +18,10 @@ module.exports = {
 
   fn: async function (inputs) {
     var game = await Game.findOne({
-      id: inputs.id,
+      token: inputs.token,
     }).populate("players");
+
+    console.log(game);
 
     if (!game) {
       throw "notFound";

@@ -9,5 +9,5 @@
  */
 
 module.exports.routes = {
-  "GET /game/full/:id": { action: "game/full" },
+  "GET /game/full/:token": { action: "game/full" },
 };

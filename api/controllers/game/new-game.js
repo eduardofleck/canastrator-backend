@@ -17,18 +17,15 @@ module.exports = {
   },
 
   fn: async function (inputs) {
-    console.log(inputs);
-
     var newGame = await Game.create({ name: inputs.game.name }).fetch();
 
-    console.log(newGame);
     var newPlayers = [];
     inputs.game.players.forEach((player) => {
       newPlayers.push({ name: player.name });
     });
 
     newPlayers = await Player.createEach(newPlayers).fetch();
-    console.log(newPlayers);
+
     var newGamePlayers = [];
     newPlayers.forEach((newPlayer) => {
       newGamePlayers.push({ player: newPlayer.id, game: newGame.id });
@@ -36,7 +33,7 @@ module.exports = {
 
     await GamePlayer.createEach(newGamePlayers).fetch();
 
-    var fullGame = await sails.helpers.getGameFull(newGame.id);
+    var fullGame = await sails.helpers.getGameFull(newGame.token);
     return fullGame;
   },
 };

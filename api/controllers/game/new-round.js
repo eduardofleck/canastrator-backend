@@ -17,17 +17,11 @@ module.exports = {
   },
 
   fn: async function (inputs) {
-    console.log(inputs);
-
     var game = await Game.findOne({
       id: inputs.round.game,
     }).populate("players");
 
-    console.log(game);
-
     var newRound = await Round.create({ game: game.id }).fetch();
-
-    console.log(newRound);
 
     var newRounds = [];
     inputs.round.scores.forEach((score) => {
